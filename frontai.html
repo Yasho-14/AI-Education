@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Educational Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #dff6ff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .header-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            border-radius: 12px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+        .title-container {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            width: 100%;
+            border-top: 3px solid white;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links {
+            display: flex;
+        }
+        nav a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+        .login-signup {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid white;
+            transition: all 0.3s;
+        }
+        .login-signup:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        .slides-container {
+            width: 80%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .slides-container img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            width: 100%;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #dff6ff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .header-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            border-radius: 12px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+        .title-container {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            width: 100%;
+            border-top: 3px solid white;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-links {
+            display: flex;
+        }
+        nav a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 3px;
+            background: white;
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+            left: 0;
+        }
+        .login-signup {
+            margin-right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid white;
+            transition: all 0.3s;
+        }
+        .login-signup:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        .chatbot {
+            border: 2px solid white;
+            border-radius: 8px;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+        .chatbot:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.08);
+        }
+  footer {
+            width: 100%;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+</style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="title-container">Welcome to AI Educational Platform</div>
+        <nav>
+            <div class="nav-links">
+                <a href="frontai.html">Home</a>
+                <a href="courses.html">Courses</a>
+                <a href="resources.html">Resources</a>
+                <a href="tools.html">AI Tools</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="chat.html" class="chatbot">Chatbot</a>
+            </div>
+            
+        </nav>
+    </div>
+    <div class="container">
+        <h1>Welcome to AI Education Hub</h1>
+        <p>Explore resources, courses, and tools to enhance your AI knowledge.</p>
+        <div class="section">
+            <h2>Popular AI Courses</h2>
+            <ul>
+                <li><a href="https://www.deeplearning.ai" target="_blank">Deep Learning by Andrew Ng</a></li>
+                <li><a href="https://www.udemy.com/course/machinelearning/" target="_blank">Machine Learning - Udemy</a></li>
+                <li><a href="https://www.edx.org/course/cs50s-introduction-to-artificial-intelligence-with-python" target="_blank">CS50 AI - edX</a></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>AI Learning Resources</h2>
+            <ul>
+                <li><a href="https://www.tensorflow.org/tutorials" target="_blank">TensorFlow Tutorials</a></li>
+                <li><a href="https://www.pytorch.org/tutorials" target="_blank">PyTorch Learning Hub</a></li>
+                <li><a href="https://openai.com/research/" target="_blank">OpenAI Research & Courses</a></li>
+            </ul>
+        </div>
+        <div class="slides-container">
+            <img src="ai_education_slide1.jpg" alt="AI Education Slide">
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 AI Educational Platform. All rights reserved.
+    </footer>
+</body>
+</html>

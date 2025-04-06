@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Recognition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #dff6ff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        .header-container {
+            width: 100%;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+        }
+        .back-button {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            color: #2196F3;
+            padding: 8px 15px;
+            border: none;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .back-button:hover {
+            background: #ddd;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+        button {
+            background: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1976D2;
+        }
+        .output {
+            margin-top: 20px;
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: left;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #dff6ff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .header-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            border-radius: 12px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+        .title-container {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            width: 100%;
+            border-top: 3px solid white;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-links {
+            display: flex;
+        }
+        nav a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 3px;
+            background: white;
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+            left: 0;
+        }
+        .login-signup {
+            margin-right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid white;
+            transition: all 0.3s;
+        }
+        .login-signup:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        .chatbot {
+            border: 2px solid white;
+            border-radius: 8px;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+        .chatbot:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.08);
+        }
+  footer {
+            width: 100%;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let currentPage = window.location.pathname.split("/").pop();
+            let navLinks = document.querySelectorAll(".nav-links a");
+            navLinks.forEach(link => {
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header-container">
+        <div class="title-container">Welcome to AI Educational Platform</div>
+        <nav>
+            <div class="nav-links">
+                <a href="frontai.html">Home</a>
+                <a href="courses.html">Courses</a>
+                <a href="resources.html">Resources</a>
+                <a href="tools.html">AI Tools</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="#" class="chatbot" onclick="openChatbot()">Chatbot</a>
+            </div>
+            
+        </nav>
+    </div>
+
+
+
+    <script>
+        function recognizeImage() {
+            let fileInput = document.getElementById("imageInput");
+            let outputDiv = document.getElementById("output");
+            
+            if (fileInput.files.length === 0) {
+                outputDiv.innerText = "Please upload an image.";
+                return;
+            }
+            
+            let fileName = fileInput.files[0].name;
+            outputDiv.innerText = "Processing image: " + fileName + "\n\n" +
+                "// Image recognition results will appear here...";
+        }
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+<body>
+    <div class="header-container">
+        <button class="back-button" onclick="goBack()">Back</button>
+        AI Image Recognition
+    </div>
+    <div class="container">
+        <input type="file" id="imageInput" accept="image/*">
+        <button onclick="recognizeImage()">Recognize Image</button>
+        <div class="output" id="output">Recognition results will appear here...</div>
+    </div>
+</body>
+</html>

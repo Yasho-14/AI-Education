@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Education Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #dff6ff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        .header-container {
+            width: 100%;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+        }
+        .back-button {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            color: #2196F3;
+            padding: 8px 15px;
+            border: none;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .back-button:hover {
+            background: #ddd;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .section {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .section h2 {
+            color: #2196F3;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 5px;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section li {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+        }
+        .section a {
+            text-decoration: none;
+            color: #2196F3;
+            font-weight: bold;
+        }
+        .slides-container, .image-gallery {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .slides-container img, .image-gallery img {
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+<body>
+    <div class="header-container">
+        <button class="back-button" onclick="goBack()">Back</button>
+        AI Education Hub
+    </div>
+    <div class="container">
+        <h1>Welcome to AI Education Hub</h1>
+        <p>Explore resources, courses, and tools to enhance your AI knowledge.</p>
+        
+        <div class="section">
+            <h2>Popular AI Courses</h2>
+            <ul>
+                <li><a href="https://www.coursera.org/specializations/deep-learning" target="_blank">Deep Learning Specialization - Coursera</a></li>
+                <li><a href="https://www.udacity.com/course/ai-programming-python-nanodegree--nd089" target="_blank">AI Programming with Python - Udacity</a></li>
+                <li><a href="https://ai.google/education/" target="_blank">Google AI Education</a></li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>AI Learning Resources</h2>
+            <ul>
+                <li><a href="https://www.tensorflow.org/tutorials" target="_blank">TensorFlow Tutorials</a></li>
+                <li><a href="https://www.pytorch.org/tutorials" target="_blank">PyTorch Learning Hub</a></li>
+                <li><a href="https://openai.com/research/" target="_blank">OpenAI Research & Courses</a></li>
+            </ul>
+        </div>
+        
+        <div class="slides-container">
+            <img src="ai_education_slide1.jpg" alt="AI Education Slide">
+        </div>
+        
+        <div class="image-gallery">
+            <img src="ai_course_thumbnail.jpg" alt="AI Course Thumbnail">
+        </div>
+    </div>
+</body>
+</html>

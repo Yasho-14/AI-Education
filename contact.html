@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - AI Educational Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #dff6ff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .header-container {
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            padding: 20px;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            border-radius: 12px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .contact-container {
+            max-width: 800px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .contact-container h2 {
+            margin-bottom: 20px;
+            color: #2196F3;
+        }
+        .contact-container input, .contact-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #2196F3;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .contact-container button {
+            background: #2196F3;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact-container button:hover {
+            background: #1976D2;
+        }
+        footer {
+            width: 100%;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+  
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #dff6ff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .header-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            border-radius: 12px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+        .title-container {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            border-bottom: 3px solid white;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            width: 100%;
+            border-top: 3px solid white;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-links {
+            display: flex;
+        }
+        nav a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 3px;
+            background: white;
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+            left: 0;
+        }
+        .login-signup {
+            margin-right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid white;
+            transition: all 0.3s;
+        }
+        .login-signup:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        .chatbot {
+            border: 2px solid white;
+            border-radius: 8px;
+            padding: 10px 20px;
+            transition: 0.3s;
+        }
+        .chatbot:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.08);
+        }
+  footer {
+            width: 100%;
+            background: linear-gradient(90deg, #2196F3, #21CBF3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let currentPage = window.location.pathname.split("/").pop();
+            let navLinks = document.querySelectorAll(".nav-links a");
+            navLinks.forEach(link => {
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header-container">
+        <div class="title-container">Welcome to AI Educational Platform</div>
+        <nav>
+            <div class="nav-links">
+                <a href="frontai.html">Home</a>
+                <a href="courses.html">Courses</a>
+                <a href="resources.html">Resources</a>
+                <a href="tools.html">AI Tools</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="chat.html" class="chatbot" onclick="openChatbot()">Chatbot</a>
+            </div>
+            
+        </nav>
+    </div>
+
+
+
+    </div>
+    <div class="contact-container">
+        <h2>Get in Touch</h2>
+        <p>Have any questions or feedback? Fill out the form below and we'll get back to you.</p>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2025 AI Educational Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>
